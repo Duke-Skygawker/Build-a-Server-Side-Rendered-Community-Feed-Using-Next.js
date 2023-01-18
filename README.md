@@ -1,5 +1,7 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
+Routing, ranging from setting up basic routes, dynamic route handling, and how to set up routes for server-side rendering. Therefore the React web framework Next.js will be used as you'll learn while building an application based on Stack Overflow.
+
 ## Getting Started
 
 First, run the development server:
