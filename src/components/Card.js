@@ -17,7 +17,8 @@ const Title = styled.h2`
 `;
 
 const Count = styled.span`
-  color: darkgray;
+  color: black;
+  font-weight: 700;
 `;
 
 function Card({ title, views, answers }) {

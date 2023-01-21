@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import styled from "styled-components";
+import Link from "next/link";
 import Card from "../../components/Card";
 
 const QuestionsContainer = styled.div`
@@ -7,6 +8,10 @@ const QuestionsContainer = styled.div`
   justify-content: space-between;
   flex-direction: column;
   margin: 5%;
+`;
+
+const CardLink = styled.a`
+  text-decoration: none;
 `;
 
 const stackOverflowAPI =
@@ -37,12 +42,20 @@ function Questions() {
       ) : (
         <div>
           {questions.map((question) => (
-            <Card
+            <Link
               key={question.question_id}
-              title={question.title}
-              views={question.view_count}
-              answers={question.answer_count}
-            />
+              href={`/questions/${question.question_id}`}
+              passHref
+            >
+              <CardLink>
+                <Card
+                  key={question.question_id}
+                  title={question.title}
+                  views={question.view_count}
+                  answers={question.answer_count}
+                />
+              </CardLink>
+            </Link>
           ))}
         </div>
       )}
