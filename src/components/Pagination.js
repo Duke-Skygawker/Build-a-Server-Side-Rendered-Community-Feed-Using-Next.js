@@ -9,8 +9,10 @@ const PaginationContainer = styled.div`
 const PaginationLink = styled.a`
   padding: 2%;
   margin: 1%;
-  background: orange;
-  cursor: pointer;
+
+  background: ${(props) => (!props.disabled ? "orange" : "lightGrey")};
+  pointer-events: ${(props) => (!props.disabled ? "pointer" : "not-allowed")};
+
   color: white;
   text-decoration: none;
   border-radius: 5px;
@@ -22,6 +24,11 @@ function Pagination({ currentPage, hasMore }) {
       <Link href={`?page=${parseInt(currentPage) - 1}`}>
         <PaginationLink>Previous</PaginationLink>
       </Link>
+      <Link href={`?page=${parseInt(currentPage) + 1}`}>
+        <PaginationLink>Next</PaginationLink>
+      </Link>
     </PaginationContainer>
   );
 }
+
+export default Pagination;
