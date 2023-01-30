@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import styled from "styled-components";
 import Card from "@/components/Card";
-import Questions from ".";
+import Questions from "./questions";
 
 const QuestionDetailContainer = styled.div`
   display: flex;

@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import styled from "styled-components";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import Card from "../../components/Card";
 
 const QuestionsContainer = styled.div`
@@ -14,12 +15,16 @@ const CardLink = styled.a`
   text-decoration: none;
 `;
 
-const stackOverflowAPI =
-  "https://api.stackexchange.com/2.2/questions?order=desc&sort=hot&tagged=reactjs&site=stackoverflow";
+const stackOverflowAPI = `https://api.stackexchange.com/2.2/questions?${
+  page ? `page=${page}&` : ""
+}order=desc&sort=hot&tagged=reactjs&site=stackoverflow`;
 
 function Questions() {
   const [loading, setLoading] = useState(false);
   const [questions, setQuestions] = useState([]);
+
+  const router = useRouter();
+  const { page } = router.query;
 
   useEffect(() => {
     async function fetchData() {
