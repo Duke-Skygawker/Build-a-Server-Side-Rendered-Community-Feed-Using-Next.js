@@ -16,16 +16,16 @@ const CardLink = styled.a`
   text-decoration: none;
 `;
 
-const stackOverflowAPI = `https://api.stackexchange.com/2.2/questions?${
-  page ? `page=${page}&` : ""
-}order=desc&sort=hot&tagged=reactjs&site=stackoverflow`;
-
 function Questions() {
   const [loading, setLoading] = useState(false);
   const [questions, setQuestions] = useState([]);
   const [hasMore, setHasMore] = useState(false);
   const router = useRouter();
   const { page } = router.query;
+
+  const stackOverflowAPI = `https://api.stackexchange.com/2.2/questions?${
+    page ? `page=${page}&` : ""
+  }order=desc&sort=hot&tagged=reactjs&site=stackoverflow`;
 
   useEffect(() => {
     async function fetchData() {
